@@ -1,9 +1,9 @@
 {
-  "name": "connect-sqlite3",
-  "description": "SQLite3 session store for Connect",
+  "name": "express-sqlite3",
+  "description": "SQLite3 session store for Express",
   "version": "0.9.11",
-  "author": "David Feinberg",
-  "main": "lib/connect-sqlite3",
+  "author": "cmd430",
+  "main": "lib/express-sqlite3",
   "scripts": {
     "test": "mocha test/test.js"
   },
@@ -13,7 +13,7 @@
   "devDependencies": {
     "connect": ">=1.0.0",
     "express-session": "^1.13.0",
-    "mocha": "^2.3.4",
+    "mocha": "^6.2.0",
     "should": "^8.2.0"
   },
   "engines": {
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/rawberg/connect-sqlite3.git"
+    "url": "git://github.com/cmd430/express-sqlite3.git"
   },
   "licenses": [
     {

@@ -1,9 +1,9 @@
 var should = require('should'),
     session = require('express-session'),
     util = require('util'),
-    SQLiteStore = require('../lib/connect-sqlite3.js')(session);
+    SQLiteStore = require('../lib/express-sqlite3.js')(session);
   
-describe('connect-sqlite3 basic test suite', function() {
+describe('express-sqlite3 basic test suite', function() {
     before(function() {
         this.memStore = new SQLiteStore({db: ':memory:', dir: 'dbs'});
     });
@@ -86,7 +86,7 @@ describe('connect-sqlite3 basic test suite', function() {
 });
 
 
-describe('connect-sqlite3 shared cache', function() {
+describe('express-sqlite3 shared cache', function() {
   it("should retrieve in one cached session what's stored in another.", function(done) {
     var cwd = process.cwd();
     var memStore = new SQLiteStore({db: 'file::memory:?cache=shared', mode: 0x20046});
