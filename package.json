@@ -1,7 +1,7 @@
 {
   "name": "express-sqlite3",
   "description": "SQLite3 session store for Express",
-  "version": "0.9.11",
+  "version": "0.0.1",
   "author": "cmd430",
   "main": "lib/express-sqlite3",
   "scripts": {
