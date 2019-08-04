@@ -5,7 +5,7 @@ var should = require('should'),
   
 describe('express-sqlite3 basic test suite', function() {
     before(function() {
-        this.memStore = new SQLiteStore({db: ':memory:', dir: 'dbs'});
+        this.memStore = new SQLiteStore({path: ':memory:'});
     });
 
     after(function() {
@@ -89,9 +89,9 @@ describe('express-sqlite3 basic test suite', function() {
 describe('express-sqlite3 shared cache', function() {
   it("should retrieve in one cached session what's stored in another.", function(done) {
     var cwd = process.cwd();
-    var memStore = new SQLiteStore({db: 'file::memory:?cache=shared', mode: 0x20046});
+    var memStore = new SQLiteStore({path: 'file::memory:?cache=shared', mode: 0x20046});
     process.chdir('..'); // Ensure we aren't opening a shared disk file
-    var memStore2 = new SQLiteStore({db: 'file::memory:?cache=shared', mode: 0x20046});
+    var memStore2 = new SQLiteStore({path: 'file::memory:?cache=shared', mode: 0x20046});
 
     memStore.set('1111222233334444', {cookie: {maxAge:2011}, name: 'sample name'}, function(err, rows) {
       process.chdir(cwd); // Restore dir
@@ -107,8 +107,8 @@ describe('express-sqlite3 shared cache', function() {
   });
 
   it("should not retrieve in one uncached session what's stored in another.", function(done) {
-    var memStore = new SQLiteStore({db: ':memory:'});
-    var memStore2 = new SQLiteStore({db: ':memory:'});
+    var memStore = new SQLiteStore({path: ':memory:'});
+    var memStore2 = new SQLiteStore({path: ':memory:'});
 
     memStore.set('1111222233334444', {cookie: {maxAge:2011}, name: 'sample name'}, function(err, rows) {
       should.not.exist(err, 'set() returned an error');
