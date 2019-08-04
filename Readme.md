@@ -10,9 +10,8 @@ express-sqlite3 is a SQLite3 session store modeled after the TJ's express-redis 
 
 ## Options
 
-  - `table='sessions'` Database table name
-  - `db='sessionsDB'` Database file name (defaults to table name)
-  - `dir='.'` Directory to save '<db>.db' file
+  - `table='sessions'` Database table name (defaults to sessions)
+  - `path=':memory:'` Directory to save '<db>.db' file (defaults to memory)
   - `WAL='false'` Enables [WAL](https://www.sqlite.org/wal.html) mode (defaults to false)
 
 ## Usage
